@@ -1,23 +1,28 @@
 #include <iostream>
 using namespace std;
 
-int factorial(int n) {
-    int result = 1;
+void fibonacci(int n) {
+    int t1 = 0, t2 = 1, nextTerm;
+
+    cout << "Fibonacci Sequence: ";
     for (int i = 1; i <= n; i++) {
-        result *= i;
+        cout << t1 << " ";
+        nextTerm = t1 + t2;
+        t1 = t2;
+        t2 = nextTerm;
     }
-    return result;
+    cout << endl;
 }
 
 int main() {
     int num;
-    cout << "Enter a number: ";
+    cout << "Enter number of terms: ";
     cin >> num;
 
-    if(num < 0) {
-        cout << "Factorial is not defined for negative numbers." << endl;
+    if(num <= 0) {
+        cout << "Please enter a positive number." << endl;
     } else {
-        cout << "Factorial of " << num << " is " << factorial(num) << endl;
+        fibonacci(num);
     }
 
     return 0;
